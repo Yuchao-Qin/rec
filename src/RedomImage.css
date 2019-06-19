@@ -1,0 +1,14 @@
+a.pic {
+  display: block;
+    padding: 10px 10px 15px;
+    text-align: center;
+    background: white;
+    border: 1px solid #bfbfbf;
+}
+
+.pic img {
+  display: block;
+  margin-bottom: 10px;
+  border: 0;
+}
+

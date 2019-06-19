@@ -1,17 +1,24 @@
 import React from 'react';
 import Clock from './Clock'
-import logo from './logo.svg';
 import './App.css';
+import RedomImage from './RedomImage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Clock date={ 'haha' }/>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {value:123}
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Clock date={'haha'} />
+          <RedomImage></RedomImage>
+        </header>
+      </div>
+    )
+  }
 }
 
 export default App;

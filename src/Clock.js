@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDom from 'react-dom';
+import React from "react"
+import './Clock.css'
 
 
 class Clock extends React.Component {
@@ -11,17 +11,6 @@ class Clock extends React.Component {
       numbers :[1,2,3,4,5],
     }
   }
-
-   NumberList() {
-      const numbers = [1,2,3,4,5];
-      const listItems = numbers.map((number)=>
-        <li key={number.toString()}>
-          { number }
-        </li>
-      )
-    
-     return  (<ul>{listItems}</ul>)
-    }
 
   componentDidMount() {
     this.timerId = setInterval(
@@ -42,9 +31,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-
-        {this.NumberList()}
-        <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+        <div><h2>现在是{this.state.date.toLocaleTimeString()}</h2></div>
       </div>
     )
   }
