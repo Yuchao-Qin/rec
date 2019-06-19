@@ -1,5 +1,5 @@
 a.pic {
-  display: block;
+    display: inline-block;
     padding: 10px 10px 15px;
     text-align: center;
     background: white;
@@ -10,5 +10,12 @@ a.pic {
   display: block;
   margin-bottom: 10px;
   border: 0;
+}
+
+.imgContent {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 

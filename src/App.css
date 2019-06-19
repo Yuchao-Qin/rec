@@ -1,13 +1,12 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  text-align: center;
+  height: 100vh;
 }
 
 
 .App-header {
-  display: inline-block;
-  height: 100vh;
+  height: 100%;
   font-size: calc(10px + 2vmin);
   color: white;
   /* box-sizing: border-box; */

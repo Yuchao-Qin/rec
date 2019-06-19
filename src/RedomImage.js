@@ -4,25 +4,37 @@ import './RedomImage.css';
 // 'https://image.zhangxinxu.com/image/study/s/s256/mm4.jpg','https://image.zhangxinxu.com/image/study/s/s256/mm5.jpg','https://image.zhangxinxu.com/image/study/s/s256/mm6.jpg',
 
 class RedomImage extends React.Component {
-  constructor (prop) {
-    super (prop);
+  constructor (props) {
+    super (props);
     this.state = {
       imgUrl: [
-        'https://image.zhangxinxu.com/image/study/s/s256/mm10.jpg',
-        'https://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
-        'https://image.zhangxinxu.com/image/study/s/s256/mm2.jpg',
-        'https://image.zhangxinxu.com/image/study/s/s256/mm3.jpg',
+        require('./mm10.jpg'),
+        require('./mm1.jpg'),
+        require('./mm3.jpg'),
+        require('./mm2.jpg'),
       ],
       winHeight: '',
       winWidth: '',
     };
+
   }
 
   componentDidMount () {
-    this.setState ({
-      winHeight: document.documentElement.clientHeight,
-      winWidth: document.documentElement.clientWidth,
-    });
+    this.x= window.setTimeout(()=>{this.setState ({
+      imgDom:this.state.imgUrl.map ((item, index) => ( // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        <a
+          key={index}
+          href="javascript:;"
+          className="pic"
+          style={   this.imgRotate ()}
+        >
+          <img alt="" width={this.imgWidth ()} src={item} />
+        </a>
+      ))
+    })},0)
+    
+
+    
   }
 
   imgWidth () {
@@ -30,29 +42,23 @@ class RedomImage extends React.Component {
   }
 
   imgRotate () {
-    let num, leftRan, rightRan;
+    let num, leftRan, topRan;
     if (Math.random () * 10 > 5) {
       num = 1 * (45 * Math.random ());
     } else {
       num = -1 * (45 * Math.random ());
     }
-
-    leftRan = this.state.winWidth * Math.random ();
-
-    return {transform: `rotate(${num}deg)`, position: 'absoulte'};
+    
+    leftRan = this.props.AppheaderWidth * Math.random ();
+    topRan = this.props.AppheaderHeight * Math.random ();
+    console.log(leftRan)
+    return {transform: `rotate(${num}deg)`,color:'blue', position: 'absolute', top:`${topRan}px`, left:`${leftRan}px`};
   }
 
   render () {
-    return this.state.imgUrl.map ((item, index) => ( // eslint-disable-next-line jsx-a11y/anchor-is-valid
-      <a
-        key={index}
-        href="javascript:;"
-        className="pic"
-        style={this.imgRotate ()}
-      >
-        <img alt="" width={this.imgWidth ()} src={item} />
-      </a>
-    ));
+    return (<div className="imgContent">
+      {this.state.imgDom}
+    </div>)
   }
 }
 
